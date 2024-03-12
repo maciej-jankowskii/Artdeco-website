@@ -1,0 +1,730 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62%;
+  scroll-behavior: smooth;
+}
+
+.blur {
+  filter: blur(2px);
+}
+
+.nav__burger {
+  position: fixed;
+  padding: 15px;
+  top: 10px;
+  right: 10px;
+  font-size: 26px;
+  color: white;
+  z-index: 1500;
+  transition: font-size 0.3s;
+}
+.nav__burger:hover {
+  font-size: 32px;
+}
+.nav__burger--black {
+  color: black;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  transform: translateX(100%);
+  transition: 0.5s;
+  background-color: white;
+  z-index: 500;
+}
+.nav--active {
+  transform: translateX(0);
+}
+.nav__logo {
+  display: none;
+}
+.nav__item {
+  position: relative;
+  display: block;
+  margin: 40px 0;
+  padding: 5px 0;
+  font-size: 2.2rem;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  overflow: hidden;
+}
+.nav__item::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  transition: left 0.3s;
+}
+.nav__item:hover::before {
+  left: 0;
+}
+.nav__contact {
+  display: none;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 40vh;
+  background-image: url("../img/skyscraper-small.jpg");
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+.header__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.header__box-text {
+  position: relative;
+  text-align: center;
+  color: white;
+  z-index: 10;
+  animation: headerAnimation 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+.header__title {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.header__text {
+  margin-top: 10px;
+  font-size: 1.7rem;
+}
+.header__btn {
+  position: absolute;
+  bottom: 10%;
+  font-size: 1.6rem;
+  padding: 5px 10px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  text-decoration: none;
+  z-index: 100;
+  overflow: hidden;
+  transform: translateY(300%);
+  animation: headerBtnAnimation 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s both;
+}
+.header__btn::before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: -90px;
+  width: 80px;
+  height: 100px;
+  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  transform: rotate(20deg);
+  transition: 0.5s;
+}
+.header__btn:hover::before {
+  left: 150px;
+}
+
+@keyframes headerAnimation {
+  from {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes headerBtnAnimation {
+  from {
+    transform: translateY(300%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.about {
+  margin: 20px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.about .first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about .second {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin-top: 20px;
+}
+.about__title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+.about__img-first {
+  background-image: url("../img/architecture-small.jpg");
+  width: 50%;
+  height: 250px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+}
+.about__info {
+  width: 50%;
+  padding: 0 15px;
+  text-align: justify;
+  font-size: 1.5rem;
+}
+.about__info h3 {
+  text-transform: uppercase;
+}
+.about__img-second {
+  background-image: url("../img/staircase-small.jpg");
+  width: 50%;
+  height: 250px;
+  background-position: center;
+  background-size: cover;
+}
+
+.projects {
+  margin: 20px auto;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.projects .project {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 250px;
+  background-position: center;
+  background-size: cover;
+}
+.projects .project .hero-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.projects .project .hero-text {
+  position: absolute;
+  bottom: 10px;
+  color: white;
+  font-size: 1.3rem;
+}
+.projects__first {
+  background-image: url("../img/apartment-small.jpg");
+}
+.projects__second {
+  background-image: url("../img/bed-small.jpg");
+}
+.projects__third {
+  background-image: url("../img/chair-small.jpg");
+}
+.projects__fourth {
+  background-image: url("../img/house-small.jpg");
+}
+.projects__title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+.services {
+  margin: 30px auto;
+  padding: 0 10px;
+}
+.services__title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+.services__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.services__img {
+  width: 50%;
+  height: 250px;
+  background-image: url("../img/services-small.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 2s;
+}
+.services__img--active {
+  opacity: 1;
+}
+.services__text {
+  width: 50%;
+  margin: 0 15px;
+  text-align: justify;
+}
+.services__text h3 {
+  font-size: 2rem;
+}
+.services__text p {
+  font-size: 1.3rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 10vh;
+  background-color: rgb(20, 20, 20);
+  color: white;
+}
+.contact__logo {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 2.5rem;
+  padding: 10px 0;
+}
+.contact__address {
+  text-align: center;
+  word-spacing: 3px;
+  font-size: 1.2rem;
+}
+.contact__icon-box {
+  font-size: 1.6rem;
+  margin-right: 15px;
+}
+.contact__details-box {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
+}
+.contact__info-box a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 10%;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: none;
+  z-index: 400;
+}
+.modal__box {
+  position: relative;
+}
+.modal__box h3 {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 10px 0;
+}
+.modal__box p {
+  margin: 0 5px;
+  text-align: justify;
+  padding: 15px 0;
+}
+.modal__close {
+  position: absolute;
+  top: -9px;
+  right: 0;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.modal--active {
+  display: block;
+}
+
+@media (min-width: 767px) {
+  .nav__burger {
+    top: 15px;
+    right: 15px;
+    font-size: 34px;
+  }
+  .nav__burger:hover {
+    font-size: 40px;
+  }
+  .nav__item {
+    font-size: 3.2rem;
+  }
+  .header__title {
+    font-size: 3.6rem;
+  }
+  .header__text {
+    margin-top: 10px;
+    font-size: 2rem;
+  }
+  .header__btn {
+    font-size: 2rem;
+    padding: 10px 20px;
+  }
+  .about__title {
+    font-size: 3rem;
+    margin: 30px 0;
+  }
+  .about__info {
+    padding: 0 15px;
+    font-size: 2rem;
+  }
+  .projects {
+    margin: 50px auto;
+  }
+  .projects .project .hero-bg {
+    height: 90px;
+  }
+  .projects .project .hero-text {
+    font-size: 2.3rem;
+    line-height: 75px;
+  }
+  .projects__title {
+    font-size: 3rem;
+    margin: 20px 0;
+  }
+  .services {
+    margin: 60px auto;
+  }
+  .services__title {
+    font-size: 3rem;
+  }
+  .services__img {
+    height: 350px;
+    background-image: url("../img/services-big.jpg");
+  }
+  .services__text h3 {
+    font-size: 2.8rem;
+  }
+  .services__text p {
+    font-size: 2.3rem;
+  }
+  .contact__logo {
+    font-size: 3rem;
+    padding: 10px 0;
+  }
+  .contact__info-box {
+    font-size: 1.4rem;
+  }
+  .contact__address {
+    font-size: 1.6rem;
+  }
+  .contact__icon-box {
+    font-size: 1.7rem;
+  }
+  .modal__box h3 {
+    font-size: 3rem;
+  }
+  .modal__box p {
+    font-size: 1.5rem;
+    margin: 0 30px;
+  }
+  .modal__close {
+    font-size: 2rem;
+  }
+  .modal--active {
+    display: block;
+  }
+}
+@media (min-width: 1024px) {
+  .nav__burger {
+    display: none;
+  }
+  .nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateX(0);
+  }
+  .nav--black {
+    background-color: rgba(20, 20, 20, 0.6);
+  }
+  .nav__logo {
+    display: block;
+    margin: 0 20px;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+  }
+  .nav__logo--white {
+    color: white;
+  }
+  .nav__item {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    border-radius: 5px;
+    padding: 5px 20px;
+    transition: 0.3s;
+  }
+  .nav__item::before {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: rgba(222, 222, 222, 0.2);
+  }
+  .nav__item--white {
+    color: white;
+  }
+  .nav__items {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .nav__contact {
+    position: relative;
+    display: block;
+    margin: 0 20px;
+    background: none;
+    padding: 10px 40px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .nav__contact::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: -215px;
+    width: 190px;
+    height: 100px;
+    background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    transform: rotate(20deg);
+    transition: 0.5s;
+  }
+  .nav__contact--white {
+    color: white;
+  }
+  .nav__contact:hover::before {
+    left: 200px;
+  }
+  .header {
+    height: 60vh;
+    background-image: url("../img/skyscraper-big.jpg");
+  }
+  .header__title {
+    font-size: 5rem;
+  }
+  .header__text {
+    font-size: 3.5rem;
+  }
+  .header__btn {
+    font-size: 2.5rem;
+  }
+  .about__img-first {
+    background-image: url("../img/architecture-big.jpg");
+    height: 350px;
+    width: 45%;
+  }
+  .about__img-second {
+    background-image: url("../img/staircase-big.jpg");
+    height: 350px;
+    width: 45%;
+  }
+  .about {
+    margin: 50px auto;
+    overflow: hidden;
+  }
+  .about__title {
+    font-size: 3.5rem;
+    letter-spacing: 1px;
+    margin: 40px 0;
+  }
+  .about__info {
+    font-size: 2.7rem;
+    padding: 0 25px;
+  }
+  .about__content {
+    transform: translateX(-100%);
+    transition: 1s;
+  }
+  .about__content.active {
+    transform: translateX(0);
+  }
+  .projects {
+    margin: 50px auto;
+  }
+  .projects .project {
+    height: 400px;
+    margin: 5px 0;
+    transform: scale(0);
+    transition: 1s;
+  }
+  .projects .project .hero-bg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .projects .project .hero-text {
+    position: absolute;
+    bottom: 10px;
+    color: white;
+    font-size: 2.8rem;
+  }
+  .projects .project:hover {
+    transform: scale(0.9);
+  }
+  .projects .project--active {
+    transform: scale(1);
+  }
+  .projects__first {
+    background-image: url("../img/apartment.big.jpg");
+  }
+  .projects__second {
+    background-image: url("../img/bed-big.jpg");
+  }
+  .projects__third {
+    background-image: url("../img/chair-big.jpg");
+  }
+  .projects__fourth {
+    background-image: url("../img/house-big.jpg");
+  }
+  .projects__title {
+    font-size: 3.2rem;
+    margin: 30px 0;
+  }
+  .services {
+    margin: 60px auto;
+  }
+  .services__title {
+    margin: 40px auto;
+    font-size: 3.5rem;
+  }
+  .services__text h3 {
+    font-size: 3rem;
+  }
+  .services__text p {
+    font-size: 2.6rem;
+  }
+  .contact__logo {
+    font-size: 3.5rem;
+    padding: 15px 0;
+  }
+  .contact__address {
+    font-size: 1.9rem;
+  }
+  .contact__icon-box {
+    font-size: 2rem;
+  }
+  .contact__info-box {
+    font-size: 1.7rem;
+  }
+  .modal__box h3 {
+    font-size: 3.2rem;
+  }
+  .modal__box p {
+    font-size: 1.9rem;
+    margin: 0 50px;
+  }
+  .modal__close {
+    font-size: 2.2rem;
+  }
+  .modal--active {
+    display: block;
+  }
+}
+@media (min-width: 1224px) {
+  .nav__logo {
+    font-size: 1.5rem;
+  }
+  .nav__item {
+    font-size: 2rem;
+  }
+  .header {
+    height: 80vh;
+  }
+  .header__title {
+    font-size: 4.5rem;
+  }
+  .header__text {
+    font-size: 3rem;
+  }
+  .header__btn {
+    font-size: 2.5rem;
+  }
+  .about__title {
+    margin: 50px 0;
+  }
+  .about__info {
+    font-size: 2.3rem;
+    padding: 0 25px;
+  }
+  .about__info h3 {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .services__title {
+    margin: 40px auto;
+    font-size: 3.5rem;
+  }
+  .services__text {
+    padding: 0 15px;
+  }
+  .services__text h3 {
+    margin: 30px 0;
+    font-size: 3rem;
+  }
+  .modal__box h3 {
+    font-size: 3rem;
+  }
+  .modal__box p {
+    font-size: 1.5rem;
+    margin: 0 100px;
+    line-height: 25px;
+  }
+  .modal__close {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  .modal--active {
+    display: block;
+  }
+}/*# sourceMappingURL=main.css.map */
